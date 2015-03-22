@@ -713,8 +713,8 @@ cat << CTAG
 									}
 								},
 								exclude: [ 
-									"boost_duration", "boostpulse", "cpu_utilization", "multi_phase_freq_tbl", "profile", "profile_list", "sampling_rate_min", 
-									"up_threshold_h", "up_threshold_l", "version_profiles"
+									"boost_duration", "boostpulse", "cpu_utilization", "multi_phase_freq_tbl", "profile",
+									"profile_list", "up_threshold_h", "up_threshold_l", "version_profiles"
 								]
 							},
 						}
