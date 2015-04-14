@@ -464,6 +464,7 @@ cat << CTAG
 					$BB echo '{ SSeekBar:{
 							title:"Start Delay",
 							description:"Time until MPD starts to work.",
+							unit:" ms",
 							min:0,
 							max:50000,
 							step:1000,
@@ -476,6 +477,7 @@ cat << CTAG
 					$BB echo '{ SSeekBar:{
 							title:"Delay",
 							description:"Time between checks.",
+							unit:" ms",
 							min:0,
 							max:200,
 							step:1,
