@@ -2,31 +2,6 @@ cat << CTAG
 {
 	name:TOOLS,
 		elements:[
-			`if [ "\`sh $DEVICE HasBootloader\`" == "1" ] && [ -e "\`sh $DEVICE DirKernelIMG\`" ]; then
-				$BB echo '{ STitleBar:{
-					title:"Bootloader Status"
-				}},
-					{ SLiveLabel:{
-						refresh:3000,
-						action:"live Bootloader"
-					}},
-					{ SDescription:{
-						description:"Use this button to lock/unlock your bootloader without fastboot and data wipe."
-					}},
-					{ SButton:{
-						label:"Toggle Bootloader Status",
-						action:"devtools bootloader"
-					}},'
-			fi`
-			`if [ "\`sh $DEVICE HasTamperFlag\`" == "1" ] && [ -e "\`sh $DEVICE DirKernelIMG\`" ]; then
-				$BB echo '{ SDescription:{
-					description:"The bootloader sets a tamper flag if it has ever been unlocked/altered. The button below allows you to change this state."
-				}},
-					{ SButton:{
-						label:"Toggle Tamper Flag",
-						action:"devtools tamper"
-					}},'
-			fi`
 			{ SPane:{
 				title:"SELinux Status",
 				description:"Allows you to change your SELinux (Security-Enhanced Linux) Status from Enforcing (policy is enforced) to Permissive (prints warnings instead of enforcing).",
@@ -123,56 +98,6 @@ cat << CTAG
 					label:"Save last_kmsg",
 					action:"devtools kmsg"
 				}},
-			`if [ -e "\`sh $DEVICE DirKernelIMG\`" ]; then
-			KERNEL=\`sh $DEVICE DirKernelIMG\`
-				$BB echo '{ SPane:{
-					title:"Kernel"
-				}},
-					{ SOptionList:{
-						title:"Selected Image",
-						description:"Choose the image you want and apply your choice in Synapse before using the action buttons below.",
-						action:"restorebackup pickboot",
-						default:"None",
-						values:[ "None",'
-							for IMG in \`$UKM/actions/restorebackup listboot\`; do
-								echo "\"$IMG\","
-							done
-						$BB echo ']
-					}},
-					{ SButton:{
-						label:"Restore Selected Kernel",
-						action:"restorebackup flashboot '$KERNEL'"
-					}},
-					{ SButton:{
-						label:"Delete Selected Kernel",
-						action:"restorebackup delboot",
-						notify:[
-							{ on:APPLY,
-							do:[ RESET, REFRESH ],
-							to:"restorebackup pickboot"
-							}
-						]
-					}},
-					{ SGeneric:{
-						title:"Kernel Name",
-						default:"None",
-						action:"generic '$UKM'/files/bck_prof",
-					}},
-					{ SDescription:{
-						description:"First set a name above and apply. After this you can press the Backup Current Kernel button below."
-					}},
-					{ SButton:{
-						label:"Backup Current Kernel",
-						action:"restorebackup keepboot '$KERNEL'",
-						notify:[
-							{
-								on:APPLY,
-								do:[ REFRESH, APPLY ],
-								to:"generic '$UKM'/files/bck_prof"
-							}
-						]
-					}},'
-			fi`
 			{ SPane:{
 				title:"General Actions",
 				description:"To update/refresh lists, select Restart Synapse below. To clear data, select Clear Synapse Data (fixes most common issues)."
