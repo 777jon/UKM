@@ -200,8 +200,8 @@ cat << CTAG
 							description:"Time between checks.",
 							unit:" ms",
 							min:0,
-							max:200,
-							step:1,
+							max:500,
+							step:5,
 							default:'$DL',
 							action:"generic '$BHC'/delay",
 					}},'
@@ -213,7 +213,7 @@ cat << CTAG
 							description:"Minimum interval a CPU is kept online.",
 							unit:" ms",
 							min:300,
-							max:1200,
+							max:5000,
 							step:10,
 							default:'$DOWNLOCK',
 							action:"generic '$BHC'/down_lock_duration"
@@ -335,7 +335,7 @@ cat << CTAG
 							description:"This amount of time must have passed for CPU1 to be hotplugged.",
 							unit:" ms",
 							min:0,
-							max:500,
+							max:1000,
 							step:1,
 							default:'$TWTS0',
 							action:"generic '$BHC'/twts_threshold_0"
@@ -348,7 +348,7 @@ cat << CTAG
 							description:"This amount of time must have passed for CPU0 to be unplugged.",
 							unit:" ms",
 							min:0,
-							max:500,
+							max:1000,
 							step:1,
 							default:'$TWTS1',
 							action:"generic '$BHC'/twts_threshold_1"
@@ -361,7 +361,7 @@ cat << CTAG
 							description:"This amount of time must have passed for CPU2 to be hotplugged.",
 							unit:" ms",
 							min:0,
-							max:500,
+							max:1000,
 							step:1,
 							default:'$TWTS2',
 							action:"generic '$BHC'/twts_threshold_2"
@@ -374,7 +374,7 @@ cat << CTAG
 							description:"This amount of time must have passed for CPU1 to be unplugged.",
 							unit:" ms",
 							min:0,
-							max:500,
+							max:1000,
 							step:1,
 							default:'$TWTS3',
 							action:"generic '$BHC'/twts_threshold_3"
@@ -387,7 +387,7 @@ cat << CTAG
 							description:"This amount of time must have passed for CPU3 to be hotplugged.",
 							unit:" ms",
 							min:0,
-							max:500,
+							max:1000,
 							step:1,
 							default:'$TWTS4',
 							action:"generic '$BHC'/twts_threshold_4"
@@ -400,7 +400,7 @@ cat << CTAG
 							description:"This amount of time must have passed for CPU2 to be unplugged.",
 							unit:" ms",
 							min:0,
-							max:500,
+							max:1000,
 							step:1,
 							default:'$TWTS5',
 							action:"generic '$BHC'/twts_threshold_5"
@@ -413,7 +413,7 @@ cat << CTAG
 							description:"This amount of time must have passed for CPU4 to be hotplugged.",
 							unit:" ms",
 							min:0,
-							max:500,
+							max:1000,
 							step:1,
 							default:'$TWTS6',
 							action:"generic '$BHC'/twts_threshold_6"
@@ -426,7 +426,7 @@ cat << CTAG
 							description:"This amount of time must have passed for CPU3 to be unplugged.",
 							unit:" ms",
 							min:0,
-							max:500,
+							max:1000,
 							step:1,
 							default:'$TWTS7',
 							action:"generic '$BHC'/twts_threshold_7"
