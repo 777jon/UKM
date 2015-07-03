@@ -515,6 +515,18 @@ cat << CTAG
 							action:"boolean /sys/module/workqueue/parameters/power_efficient",
 						}},'
 				fi`
+				`if [ -f "/sys/kernel/sched/arch_power" ]; then
+				APOWER=\`$BB cat /sys/kernel/sched/arch_power\`
+				$BB echo '{ SPane:{
+					title:"Arch Power"
+				}},
+					{ SCheckBox:{
+						label:"Enable",
+						description:"Arch Power uses arch dependent power functions to be used instead of generic high resolution timer ticks and double ticks to reflect the relative capacity of each core.",
+						default:'$APOWER',
+						action:"generic /sys/kernel/sched/arch_power"
+					}},'
+				fi`
 			{ SPane:{
 				title:"CPU Governor",
 				description:"The CPU governor determines how the CPU behaves in response to changes in workload. More info: <a href='http://timos.me/tm/wiki/cpugovernors'>HERE</a>"

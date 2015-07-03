@@ -153,18 +153,6 @@ cat << CTAG
 						action:"generic /sys/kernel/sched/gentle_fair_sleepers"
 					}},'
 			fi`
-			`if [ -f "/sys/kernel/sched/arch_power" ]; then
-			APOWER=\`$BB cat /sys/kernel/sched/arch_power\`
-				$BB echo '{ SPane:{
-					title:"Arch Power"
-				}},
-					{ SCheckBox:{
-						label:"Enable",
-						description:"Arch Power uses arch dependent power functions to be used instead of generic high resolution timer ticks and double ticks to reflect the relative capacity of each core.",
-						default:'$APOWER',
-						action:"generic /sys/kernel/sched/arch_power"
-					}},'
-			fi`
 			`if [ -f "/sys/module/lowmemorykiller/parameters/minfree" ]; then
 				$BB echo '{ SPane:{
 					title:"Low Memory Killer",
