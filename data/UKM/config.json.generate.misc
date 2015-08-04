@@ -351,6 +351,46 @@ cat << CTAG
 						action:"boolean /sys/module/wakeup/parameters/enable_msm_hsic_ws"
 					}},'
 			fi`
+			`if [ -d "/sys/module/lm3697" ]; then
+				$BB echo '{ SPane:{
+					title:"Backlight Control"
+				}},'
+				if [ -f "/sys/module/lm3697/parameters/lm3697_backlight_control" ]; then
+				BL=\`bool /sys/module/lm3697/parameters/lm3697_backlight_control\`;
+					$BB echo '{ SCheckBox:{
+						label:"Enable",
+						description:"Enable/Disable backlight control.",
+						default:'$BL',
+						action:"boolean /sys/module/lm3697/parameters/lm3697_backlight_control"
+					}},'
+				fi
+
+
+				if [ -f "/sys/module/lm3697/parameters/lm3697_min_backlight" ]; then
+				BLMIN=\`$BB cat /sys/module/lm3697/parameters/lm3697_min_backlight\`
+					$BB echo '{ SSeekBar:{
+						title:"Backlight Min",
+						description:"Controls minimum backlight level.",
+						min:2,
+						max:1892,
+						step:1,
+						default:'$BLMIN',
+						action:"generic /sys/module/lm3697/parameters/lm3697_min_backlight"
+					}},'
+				fi
+				if [ -f "/sys/module/lm3697/parameters/lm3697_max_backlight" ]; then
+				BLMAX=\`$BB cat /sys/module/lm3697/parameters/lm3697_max_backlight\`;
+					$BB echo '{ SSeekBar:{
+						title:"Backlight Max",
+						description:"Controls maximum backlight level.",
+						min:2,
+						max:1892,
+						step:1,
+						default:'$BLMAX',
+						action:"generic /sys/module/lm3697/parameters/lm3697_max_backlight",
+					}},'
+				fi
+			fi`
 		]
 }
 CTAG
