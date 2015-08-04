@@ -20,11 +20,13 @@ case $DEVICE in
 	maguro|toro|toroplus)
 		CONFIG="maguro";; #Galaxy Nexus
 #Unofficial
+	g3|d85?|f400|ls990|vs985)
+		CONFIG="g3";; #LG G3
 	gee*|v500|*m7*|odin|C650?|yuga|C660?|ghost*|xt105?|xt1060|obake*|xt1080*)
 		CONFIG="mako";; #gee* = LG Optimus G, v500 = LG G Pad 8.3, *m7* = HTC One M7, odin|C650x = Sony Xperia ZL, yuga|C660x = Sony Xperia Z
 			#ghost*|xt105x|xt1060 = Moto X 2013, obake*|xt1080* = Motorola Droid Ultra
-	g2|galbi|ls980|vs980|d80?|g3|vs985|d85?|*m8*|honami|C6943|C690?|togari|C68??|shamu|d2*|jflte*|klte*)
-		CONFIG="hammerhead";; #g2|galbi|ls980|vs980|d80x = LG G2, g3|ls990|vs985|d85x = LG G3, *m8* = HTC One M8, honami|C6943|C690x = Sony Xperia Z1, 
+	g2|galbi|ls980|vs980|d80?|*m8*|honami|C6943|C690?|togari|C68??|shamu|d2*|jflte*|klte*)
+		CONFIG="hammerhead";; #g2|galbi|ls980|vs980|d80x = LG G2, *m8* = HTC One M8, honami|C6943|C690x = Sony Xperia Z1, 
 			#togari|C68xx = Sony Xperia Z Ultra, shamu = Nexus 6, , d2* = Samsung Galaxy S3, jflte* = Samsung Galaxy S4, klte* = Samsung Galaxy S5
 	grouper|tilapia)
 		CONFIG="deb";; #Nexus 7 2012
