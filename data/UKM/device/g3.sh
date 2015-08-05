@@ -435,4 +435,10 @@ case "$1" in
 			$BB echo -ne "\x$setstate" | $BB dd obs=1 count=1 seek=$offset of=$block 2> /dev/null;
 		fi;
 	;;
+	LiveKernelCurrent)
+		$BB echo "`$BB uname -r`"
+	;;
+	LiveInfoCurrent)
+		$BB echo "Version: 3.8.1.1 Special Edition"
+	;;
 esac;

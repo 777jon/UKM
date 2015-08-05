@@ -36,4 +36,10 @@ case $1 in
 	WakelocksKernel)
 		$BB echo `sh $DEVICE LiveWakelocksKernel`;
 	;;
+	KernelCurrent)
+		$BB echo `sh $DEVICE LiveKernelCurrent`;
+	;;
+	InfoCurrent)
+		$BB echo `sh $DEVICE LiveInfoCurrent`;
+	;;
 esac;
