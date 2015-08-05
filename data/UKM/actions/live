@@ -42,4 +42,13 @@ case $1 in
 	InfoCurrent)
 		$BB echo `sh $DEVICE LiveInfoCurrent`;
 	;;
+	BrickedHotplug)
+		$BB echo `sh $DEVICE LiveBrickedHotplug`;
+	;;
+	IntellidHotplug)
+		$BB echo `sh $DEVICE LiveIntellidHotplug`;
+	;;
+	MsmHotplug)
+		$BB echo `sh $DEVICE LivedMsmHotplug`;
+	;;
 esac;
